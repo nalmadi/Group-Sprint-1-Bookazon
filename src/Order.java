@@ -5,22 +5,18 @@ public class Order {
     private String dateShipped;
     private String userName;
     private String orderStatus;
-    private Address shippingAddress;
-    private Address billingAddress;
+    private ShippingAddress shippingAddress;
+    private BillingAddress billingAddress;
     private ArrayList<CartItem> items;
     private double orderPrice;
+    private Subscription subscription;
 
-    public Order(Cart cart, String subscription) {
+    public Order(Cart cart, Subscription subscription, ShippingAddress shippingAdress, BillingAddress billingAdress) {
         this.items = cart.getItems();
+        this.subscription = subscription;
         this.orderPrice = calculatePrice(subscription);
-    }
-
-    public void setShippingAddress(Address shipping) {
-        this.shippingAddress = shipping;
-    }
-
-    public void setBillingAddress(Address billing) {
-        this.billingAddress = billing;
+        this.shippingAddress = shippingAdress;
+        this.billingAddress = billingAdress;
     }
 
     public void setOrderStatus(String status) {
@@ -39,14 +35,22 @@ public class Order {
         this.userName = name;
     }
 
+    public void setShippingAddress(ShippingAddress shippingAddress) {
+        this.shippingAddress = shippingAddress;
+    }
+
+    public void setBillingAddress(BillingAddress billingAddress){
+        this.billingAddress = billingAddress;
+    }
+
     public void printOrderDetails() {
         System.out.println("Order Details:");
         System.out.println("Date Created: " + dateCreated);
         System.out.println("Date Shipped: " + dateShipped);
         System.out.println("User Name: " + userName);
         System.out.println("Order Status: " + orderStatus);
-        System.out.println(shippingAddress.printAddress());
-        System.out.println(billingAddress.printAddress());
+        this.shippingAddress.printAddress();
+        this.billingAddress.printAddress();
         System.out.println("Order Price: $" + orderPrice);
     }
 
@@ -66,5 +70,18 @@ public class Order {
         } 
 
         return totalPrice;
+    }
+
+    public double calculateTotalPrice(){
+        double totalPrice = 0.0;
+
+
+        for (CartItem item : items) {
+            totalPrice += item.getTotalPrice();
+        }
+
+        double discount = subscription.getDiscount();
+        return totalPrice * (1 - discount); 
+
     }
 }

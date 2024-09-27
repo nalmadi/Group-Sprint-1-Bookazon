@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
 
+import javax.print.attribute.standard.MediaSize.Other;
+
 public class Bookazon {
 
     private ArrayList<Book> books;
@@ -39,13 +41,14 @@ public class Bookazon {
         users.remove(user);
     }
 
-    public void updateBookDetails(Book book, String newTitle, String newAuthor, int newYearPublished, double newPrice, boolean isPaperback) {
-        book.setTitle(newTitle);
-        book.setAuthor(newAuthor);
-        book.setYearPublished(newYearPublished);
-        book.setPrice(newPrice);
-        book.setPaperback(isPaperback);
-    }
+    // Pass in some class with the details or delete as a whole because this is done in another class already
+    // public void updateBookDetails(Book book, BookAttributes bookAttributes, OtherAttributes otherAttributes) {
+    //     book.title = bookAttributes.getTitle();
+    //     book.setAuthor(newAuthor);
+    //     book.setYearPublished(newYearPublished);
+    //     book.setPrice(newPrice);
+    //     book.setPaperback(isPaperback);
+    // }
 
     public void updateRole(User user, String role) {
         user.setSubscription(role);
@@ -56,14 +59,17 @@ public class Bookazon {
         
         Bookazon bookazon = new Bookazon();
         
+        
         // create books
         bookazon.addBook(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99, true));
         bookazon.addBook(new Book("To Kill a Mockingbird", "Harper Lee", 1960, 7.99, false));
         bookazon.addBook(new Book("1984", "George Orwell", 1949, 8.99, true));
 
         // create users
-        bookazon.addUser(new User("Alice", "normal"));
-        bookazon.addUser(new User("Bob", "gold"));
+        ShippingAddress shippingAddress = new ShippingAddress("123 Main St", "", "Springfield", "IL", "62701", "USA");
+        BillingAddress billingAddress = new BillingAddress("456 Elm St", "", "Springfield", "IL", "62702", "USA");
+        bookazon.addUser(new User("Alice", "normal", shippingAddress, billingAddress));
+        bookazon.addUser(new User("Bob", "gold", shippingAddress, billingAddress));
 
         // add books to cart
         bookazon.users.get(0).addToCart(bookazon.books.get(0), 1);
@@ -73,8 +79,8 @@ public class Bookazon {
         bookazon.users.get(0).viewCart();
 
         // set shipping address and billing address
-        bookazon.users.get(0).setShippingAddress("123 Main St", "", "Springfield", "IL", "62701", "USA");
-        bookazon.users.get(0).setBillingAddress("456 Elm St", "", "Springfield", "IL", "62702", "USA");
+        bookazon.users.get(0).setShippingAddress(new ShippingAddress("999 Main St", "", "Springfield", "IL", "62701", "USA"));
+        bookazon.users.get(0).setBillingAddress(new BillingAddress("888 Elm St", "", "Springfield", "IL", "62702", "USA"));
 
         // checkout
         bookazon.users.get(0).checkout();
