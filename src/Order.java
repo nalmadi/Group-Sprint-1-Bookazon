@@ -14,9 +14,9 @@ public class Order {
     public Order(Cart cart, Subscription subscription, ShippingAddress shippingAdress, BillingAddress billingAdress) {
         this.items = cart.getItems();
         this.subscription = subscription;
+        this.orderPrice = calculatePrice(subscription);
         this.shippingAddress = shippingAdress;
         this.billingAddress = billingAdress;
-
     }
 
     public void setOrderStatus(String status) {
@@ -49,7 +49,6 @@ public class Order {
         System.out.println("Date Shipped: " + dateShipped);
         System.out.println("User Name: " + userName);
         System.out.println("Order Status: " + orderStatus);
-
         this.shippingAddress.printAddress();
         this.billingAddress.printAddress();
         System.out.println("Order Price: $" + orderPrice);
