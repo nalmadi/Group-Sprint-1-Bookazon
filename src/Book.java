@@ -1,24 +1,21 @@
-public class Book {
-    public String title;
-    public String author;
-    public int yearPublished;
-    public double price;
-    public boolean isPaperback;  // true if the book is paperback, false if it is hardcover
+public class Book extends Media {
+    private String title;
+    private String creator;
+    private int yearPublished;
+    private double price;
+    private boolean isPaperback;  // true if the book is paperback, false if it is hardcover
 
-    public Book(BookAttributes bookAttributes, OtherAttributes otherAttributes) {
-        this.title = bookAttributes.getTitle();
-        this.author = bookAttributes.getAuthor();
-        this.yearPublished = bookAttributes.getYearPublished();
-        this.price = otherAttributes.getPrice();
-        this.isPaperback = otherAttributes.isPaperback();
+    public Book(String title, String creator, int yearPublished, double price, boolean isPaperback) {
+        super(title, creator, yearPublished, price);
+        this.isPaperback = isPaperback;
     }
 
     public void printBookDetails() {
         System.out.println("Title: " + title);
-        System.out.println("Author: " + author);
+        System.out.println("Author: " + creator);
         System.out.println("Year Published: " + yearPublished);
         System.out.println("Price: $" + price);
-        
+
     }
 
     // public void setTitle(String newTitle) {
