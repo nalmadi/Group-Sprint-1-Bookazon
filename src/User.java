@@ -6,8 +6,8 @@ public class User {
     private String subscription;
     private Cart cart;
     private ArrayList<Order> orders;
-    private Address shippingAddress;
-    private Address billingAddress;
+    private Addressable shippingAddress;
+    private Addressable billingAddress;
 
     public User(String name, String subscription) {
         this.name = name;
@@ -32,12 +32,12 @@ public class User {
         cart.viewCartDetails();
     }
 
-    public void setShippingAddress(String line1, String line2, String city, String state, String zip, String country) {
-        this.shippingAddress = new Address(line1, line2, city, state, zip, country);
+    public void setShippingAddress(Addressable shippingAddress) {
+        this.shippingAddress = shippingAddress;
     }
 
-    public void setBillingAddress(String line1, String line2, String city, String state, String zip, String country) {
-        this.billingAddress = new Address(line1, line2, city, state, zip, country);
+    public void setBillingAddress(Addressable billingAddress) {
+        this.billingAddress = billingAddress;
     }
 
     public void addToCart(Book book, int quantity) {
