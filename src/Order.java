@@ -19,10 +19,11 @@ public class Order {
     private String billingAddressCountry;
     private ArrayList<CartItem> items;
     private double orderPrice;
+    private Subscription subscription;
 
-    public Order(Cart cart, String subscription) {
+    public Order(Cart cart, Subscription subscription) {
         this.items = cart.getItems();
-        this.orderPrice = calculatePrice(subscription);
+        this.subscription = subscription;
     }
 
     public void setShippingAddress(String line1, String line2, String city, String state, String zip, String country) {
@@ -86,5 +87,18 @@ public class Order {
         } 
 
         return totalPrice;
+    }
+
+    public double calculateTotalPrice(){
+        double totalPrice = 0.0;
+
+
+        for (CartItem item : items) {
+            totalPrice += item.getTotalPrice();
+        }
+
+        double discount = subscription.getDiscount();
+        return totalPrice * (1 - discount); 
+
     }
 }
