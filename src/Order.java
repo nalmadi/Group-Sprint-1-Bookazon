@@ -9,12 +9,14 @@ public class Order {
     private BillingAddress billingAddress;
     private ArrayList<CartItem> items;
     private double orderPrice;
+    private Subscription subscription;
 
-    public Order(Cart cart, String subscription, ShippingAddress shippingAdress, BillingAddress billingAdress) {
+    public Order(Cart cart, Subscription subscription, ShippingAddress shippingAdress, BillingAddress billingAdress) {
         this.items = cart.getItems();
-        this.orderPrice = calculatePrice(subscription);
+        this.subscription = subscription;
         this.shippingAddress = shippingAdress;
         this.billingAddress = billingAdress;
+
     }
 
     public void setOrderStatus(String status) {
@@ -69,5 +71,18 @@ public class Order {
         } 
 
         return totalPrice;
+    }
+
+    public double calculateTotalPrice(){
+        double totalPrice = 0.0;
+
+
+        for (CartItem item : items) {
+            totalPrice += item.getTotalPrice();
+        }
+
+        double discount = subscription.getDiscount();
+        return totalPrice * (1 - discount); 
+
     }
 }
