@@ -61,11 +61,11 @@ public class User {
 
     public void checkout() {
         Order order = new Order(cart, this.subscription);
-        order.setShippingAddress(shippingAddress.getLine1(), shippingAddress.getLine2(),
+        order.setShippingAddress(shippingAddress.getStreetAddress(), shippingAddress.getApartmentNumber(),
                 shippingAddress.getCity(), shippingAddress.getState(), shippingAddress.getZipCode(),
                 shippingAddress.getCountry());
 
-        order.setBillingAddress(billingAddress.getLine1(), billingAddress.getLine2(),
+        order.setBillingAddress(billingAddress.getStreetAddress(), billingAddress.getApartmentNumber(),
                 billingAddress.getCity(), billingAddress.getState(), billingAddress.getZipCode(),
                 billingAddress.getCountry());
         order.setOrderStatus("Order Placed");
