@@ -19,6 +19,7 @@ public class Order {
     private String billingAddressCountry;
     private ArrayList<CartItem> items;
     private double orderPrice;
+    private Subscription subscription;
 
     public Order(Cart cart, String subscription) {
         this.items = cart.getItems();
@@ -70,21 +71,57 @@ public class Order {
         System.out.println("Order Price: $" + orderPrice);
     }
 
-    public double calculatePrice(String subscription) {
-        double totalPrice = 0.0;
+    // Original Function:
+    // public double calculatePrice(String subscription) {
+    //     double totalPrice = 0.0;
+    //     for (CartItem item : items) {
+    //         totalPrice += item.getTotalPrice();
+    //     }
 
+    //     if (subscription == "gold") {
+    //         totalPrice *= 0.15; // 15% discount for prime members
+    //     } else if (subscription == "platinum") {
+    //         totalPrice *= 0.10; // 10% discount for platinum members
+    //     } else if (subscription == "silver") {
+    //         totalPrice *= 0.05; // 5% discount for silver members
+    //     } 
+
+    //     return totalPrice;
+    // }
+
+    public double calculatePrice() {
+        double totalPrice = 0.0;
         for (CartItem item : items) {
             totalPrice += item.getTotalPrice();
         }
+        return subscription.applyDiscount(totalPrice);
+    }
+}
 
-        if (subscription == "gold") {
-            totalPrice *= 0.15; // 15% discount for prime members
-        } else if (subscription == "platinum") {
-            totalPrice *= 0.10; // 10% discount for platinum members
-        } else if (subscription == "silver") {
-            totalPrice *= 0.05; // 5% discount for silver members
-        } 
+interface Subscription {
+    double applyDiscount(double price);
+}
 
-        return totalPrice;
+class GoldSubscription implements Subscription {
+    public double applyDiscount(double price) {
+        return price * 0.85; // 15% discount
+    }
+}
+
+class PlatinumSubscription implements Subscription {
+    public double applyDiscount(double price) {
+        return price * 0.90; // 10% discount
+    }
+}
+
+class SilverSubscription implements Subscription {
+    public double applyDiscount(double price) {
+        return price * 0.95; // 5% discount
+    }
+}
+
+class NoSubscription implements Subscription {
+    public double applyDiscount(double price) {
+        return price; // No discount
     }
 }
