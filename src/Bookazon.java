@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
 
+import javax.print.attribute.standard.MediaSize.Other;
+
 public class Bookazon {
 
     private ArrayList<Book> books;
@@ -39,13 +41,14 @@ public class Bookazon {
         users.remove(user);
     }
 
-    public void updateBookDetails(Book book, String newTitle, String newAuthor, int newYearPublished, double newPrice, boolean isPaperback) {
-        book.setTitle(newTitle);
-        book.setAuthor(newAuthor);
-        book.setYearPublished(newYearPublished);
-        book.setPrice(newPrice);
-        book.setPaperback(isPaperback);
-    }
+    // Pass in some class with the details or delete as a whole because this is done in another class already
+    // public void updateBookDetails(Book book, BookAttributes bookAttributes, OtherAttributes otherAttributes) {
+    //     book.title = bookAttributes.getTitle();
+    //     book.setAuthor(newAuthor);
+    //     book.setYearPublished(newYearPublished);
+    //     book.setPrice(newPrice);
+    //     book.setPaperback(isPaperback);
+    // }
 
     public void updateRole(User user, String role) {
         user.setSubscription(role);
@@ -55,6 +58,7 @@ public class Bookazon {
     public static void main(String[] args) {
         
         Bookazon bookazon = new Bookazon();
+        
         
         // create books
         bookazon.addBook(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99, true));
