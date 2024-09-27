@@ -1,8 +1,6 @@
 
 import java.util.ArrayList;
 
-import javax.print.attribute.standard.MediaSize.Other;
-
 public class Bookazon {
 
     private ArrayList<Book> books;
@@ -40,15 +38,6 @@ public class Bookazon {
     public void removeUser(User user) {
         users.remove(user);
     }
-
-    // Pass in some class with the details or delete as a whole because this is done in another class already
-    // public void updateBookDetails(Book book, BookAttributes bookAttributes, OtherAttributes otherAttributes) {
-    //     book.title = bookAttributes.getTitle();
-    //     book.setAuthor(newAuthor);
-    //     book.setYearPublished(newYearPublished);
-    //     book.setPrice(newPrice);
-    //     book.setPaperback(isPaperback);
-    // }
 
     public void updateRole(User user, String role) {
         user.setSubscription(role);
