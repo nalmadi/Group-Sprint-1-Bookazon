@@ -4,19 +4,18 @@ public class Address {
     private String city;
     private String state;
     private String zipCode;
+    private String country;
  
  
-    public Address(String line1, String line2, String city, String state, String zipCode) {
+    public Address(String line1, String line2, String city, String state, String zipCode, String country) {
         AddressValidator.validateAddress(line1, city, state, zipCode);
- 
- 
         this.line1 = line1;
         this.line2 = line2;
         this.city = city;
         this.state = state;
         this.zipCode = zipCode;
+        this.country = country;
     }
- 
  
    
     public String getLine1() {
@@ -42,6 +41,10 @@ public class Address {
     public String getZipCode() {
         return zipCode;
     }
+
+    public String getCountry() {
+        return country;
+    }
  
  
     @Override
@@ -59,15 +62,15 @@ public class Address {
     public static void main(String[] args) {
         try {
            
-            Address address1 = new Address("123 Main St", "Apt 4B", "Waterville", "ME", "04901");
+            Address address1 = new Address("123 Main St", "Apt 4B", "Waterville", "ME", "04901", "USA");
             System.out.println("Test case 1 passed: " + address1);
  
  
-            Address address2 = new Address("456 Oak Ave", null, "Oakland", "AZ", "62704");
+            Address address2 = new Address("456 Oak Ave", null, "Oakland", "AZ", "62704", "USA");
             System.out.println("Test case 2 passed: " + address2);
  
  
-            Address address3 = new Address("", null, "Springfield", "IL", "62704");
+            Address address3 = new Address("", null, "Springfield", "IL", "62704", "USA");
             System.out.println("Test case 3 failed (Address Line 1 is required).");
  
  
@@ -78,7 +81,7 @@ public class Address {
  
         try {
            
-            Address address4 = new Address("789 Pine St", null, "Springfield", "Illinois", "62704");
+            Address address4 = new Address("789 Pine St", null, "Springfield", "Illinois", "62704", "USA");
             System.out.println("Test case 4 failed (short form for state).");
  
  
@@ -89,7 +92,7 @@ public class Address {
  
         try {
            
-            Address address5 = new Address("987 Elm St", null, "Springfield", "IL", "6270");
+            Address address5 = new Address("987 Elm St", null, "Springfield", "IL", "6270", "USA");
             System.out.println("Test case 5 failed (zip code is less than 5 digits).");
  
  
