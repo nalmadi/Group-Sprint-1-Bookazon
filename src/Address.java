@@ -1,47 +1,59 @@
-public class Address {
+public class Address implements Addressable {
     private String line1;
     private String line2;
     private String city;
     private String state;
     private String zipCode;
+<<<<<<< Updated upstream
  
  
     public Address(String line1, String line2, String city, String state, String zipCode) {
         AddressValidator.validateAddress(line1, city, state, zipCode);
  
  
+=======
+    private String country;
+
+    public Address(String line1, String line2, String city, String state, String zipCode, String country) {
+>>>>>>> Stashed changes
         this.line1 = line1;
         this.line2 = line2;
         this.city = city;
         this.state = state;
         this.zipCode = zipCode;
     }
+<<<<<<< Updated upstream
  
  
    
+=======
+
+    @Override
+>>>>>>> Stashed changes
     public String getLine1() {
         return line1;
     }
- 
- 
+
+    @Override
     public String getLine2() {
         return line2;
     }
- 
- 
+
+    @Override
     public String getCity() {
         return city;
     }
- 
- 
+
+    @Override
     public String getState() {
         return state;
     }
- 
- 
+
+    @Override
     public String getZipCode() {
         return zipCode;
     }
+<<<<<<< Updated upstream
  
  
     @Override
@@ -99,3 +111,11 @@ public class Address {
     }
  }
  
+=======
+
+    @Override
+    public String getCountry() {
+        return country;
+    }
+}
+>>>>>>> Stashed changes
