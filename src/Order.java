@@ -1,10 +1,14 @@
 import java.util.ArrayList;
 
+enum OrderStatus {
+    PLACED, PROCESSING, SHIPPED, DELIVERED, CANCELLED
+}
+
 public class Order {
     private String dateCreated;
     private String dateShipped;
     private String userName;
-    private String orderStatus;
+    private OrderStatus orderStatus;
     private String shippingAddressLine1;
     private String shippingAddressLine2;
     private String shippingAddressCity;
@@ -43,7 +47,7 @@ public class Order {
         this.billingAddressCountry = country;
     }
 
-    public void setOrderStatus(String status) {
+    public void setOrderStatus(OrderStatus status) {
         this.orderStatus = status;
     }
 
