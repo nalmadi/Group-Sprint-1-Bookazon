@@ -61,12 +61,12 @@ public class User {
     }
 
     public void addToCart(Book book, int quantity) {
-        cart.addItem(new CartItem(book.title, book.price, quantity));
+        cart.addItem(new CartItem(book.getTitle(), book.getPrice(), quantity));
     }
 
     public void removeFromCart(Book book) {
         for (CartItem item : cart.getItems()) {
-            if (item.getName().equals(book.title)) {
+            if (item.getName().equals(book.getTitle())) {
                 cart.getItems().remove(item);
                 break;
             }
