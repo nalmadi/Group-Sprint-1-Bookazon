@@ -1,13 +1,13 @@
 public interface Addressable {
-    String getLine1();
+    String getStreetAddress();
 
-    String getLine2();
+    String getApartmentNumber();
 
     String getCity();
 
     String getState();
 
     String getZipCode();
-    
+
     String getCountry();
 }
