@@ -76,7 +76,39 @@ public class Order {
 
     
     public double calculatePrice() {
-
-
+        double totalPrice = 0.0;
+        for (CartItem item : items) {
+            totalPrice += item.getTotalPrice();
+        }
+        return subscription.applyDiscount(totalPrice);
+    }
    
+}
+
+interface Subscription {
+    double applyDiscount(double price);
+}
+
+class GoldSubscription implements Subscription {
+    public double applyDiscount(double price) {
+        return price * 0.85; // 15% discount
+    }
+}
+
+class PlatinumSubscription implements Subscription {
+    public double applyDiscount(double price) {
+        return price * 0.90; // 10% discount
+    }
+}
+
+class SilverSubscription implements Subscription {
+    public double applyDiscount(double price) {
+        return price * 0.95; // 5% discount
+    }
+}
+
+class NoSubscription implements Subscription {
+    public double applyDiscount(double price) {
+        return price; // No discount
+    }
 }
