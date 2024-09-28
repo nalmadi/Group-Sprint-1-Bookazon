@@ -23,7 +23,7 @@ public class Order {
 
     public Order(Cart cart, String subscription) {
         this.items = cart.getItems();
-        this.orderPrice = calculatePrice(subscription);
+        this.orderPrice = calculatePrice();
     }
 
     public void setShippingAddress(String line1, String line2, String city, String state, String zip, String country) {
@@ -70,25 +70,7 @@ public class Order {
         System.out.println("Billing Address: " + billingAddressLine1 + ", " + billingAddressLine2 + ", " + billingAddressCity + ", " + billingAddressState + ", " + billingAddressZip + ", " + billingAddressCountry);
         System.out.println("Order Price: $" + orderPrice);
     }
-
-    // Original Function:
-    // public double calculatePrice(String subscription) {
-    //     double totalPrice = 0.0;
-    //     for (CartItem item : items) {
-    //         totalPrice += item.getTotalPrice();
-    //     }
-
-    //     if (subscription == "gold") {
-    //         totalPrice *= 0.15; // 15% discount for prime members
-    //     } else if (subscription == "platinum") {
-    //         totalPrice *= 0.10; // 10% discount for platinum members
-    //     } else if (subscription == "silver") {
-    //         totalPrice *= 0.05; // 5% discount for silver members
-    //     } 
-
-    //     return totalPrice;
-    // }
-
+    
     public double calculatePrice() {
         double totalPrice = 0.0;
         for (CartItem item : items) {
