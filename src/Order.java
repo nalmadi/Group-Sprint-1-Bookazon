@@ -1,10 +1,14 @@
 import java.util.ArrayList;
 
+enum OrderStatus {
+    PLACED, PROCESSING, SHIPPED, DELIVERED, CANCELLED
+}
+
 public class Order {
     private String dateCreated;
     private String dateShipped;
     private String userName;
-    private String orderStatus;
+    private OrderStatus orderStatus;
     private String shippingAddressLine1;
     private String shippingAddressLine2;
     private String shippingAddressCity;
@@ -19,7 +23,6 @@ public class Order {
     private String billingAddressCountry;
     private ArrayList<CartItem> items;
     private double orderPrice;
-    private Subscription subscription;
 
     public Order(Cart cart, String subscription) {
         this.items = cart.getItems();
@@ -44,7 +47,7 @@ public class Order {
         this.billingAddressCountry = country;
     }
 
-    public void setOrderStatus(String status) {
+    public void setOrderStatus(OrderStatus status) {
         this.orderStatus = status;
     }
 
@@ -70,40 +73,10 @@ public class Order {
         System.out.println("Billing Address: " + billingAddressLine1 + ", " + billingAddressLine2 + ", " + billingAddressCity + ", " + billingAddressState + ", " + billingAddressZip + ", " + billingAddressCountry);
         System.out.println("Order Price: $" + orderPrice);
     }
+
     
     public double calculatePrice() {
-        double totalPrice = 0.0;
-        for (CartItem item : items) {
-            totalPrice += item.getTotalPrice();
-        }
-        return subscription.applyDiscount(totalPrice);
-    }
-}
 
-interface Subscription {
-    double applyDiscount(double price);
-}
 
-class GoldSubscription implements Subscription {
-    public double applyDiscount(double price) {
-        return price * 0.85; // 15% discount
-    }
-}
-
-class PlatinumSubscription implements Subscription {
-    public double applyDiscount(double price) {
-        return price * 0.90; // 10% discount
-    }
-}
-
-class SilverSubscription implements Subscription {
-    public double applyDiscount(double price) {
-        return price * 0.95; // 5% discount
-    }
-}
-
-class NoSubscription implements Subscription {
-    public double applyDiscount(double price) {
-        return price; // No discount
-    }
+   
 }
