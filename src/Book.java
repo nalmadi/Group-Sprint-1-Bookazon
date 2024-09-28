@@ -80,14 +80,3 @@ public class Book implements BookValidation{
         return yearPublished > 0;
     }
 }
-
-interface BookValidation{
-
-    public boolean isPriceValid();
-
-    public boolean isTitleValid();
-
-    public boolean isAuthorValid();
-
-    public boolean isYearPublishedValid();
-}
