@@ -47,7 +47,7 @@ public class Bookazon {
         book.setPaperback(isPaperback);
     }
 
-    public void updateRole(User user, String role) {
+    public void updateRole(User user, Subscription role) {
         user.setSubscription(role);
     }
 
