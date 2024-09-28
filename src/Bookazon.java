@@ -39,11 +39,24 @@ public class Bookazon {
         users.remove(user);
     }
 
-    public void updateBookDetails(Book book, String newTitle, String newAuthor, int newYearPublished, double newPrice, boolean isPaperback) {
+    public void updateBookTitle(Book book, String newTitle){
         book.setTitle(newTitle);
-        book.setAuthor(newAuthor);
-        book.setYearPublished(newYearPublished);
+    }
+
+
+    public void updateBookPrice(Book book, double newPrice){
         book.setPrice(newPrice);
+    }
+
+    public void updateBookAuthor(Book book, String newAuthor){
+        book.setAuthor(newAuthor);
+    }
+
+    public void updateBookYearPublished(Book book, int newYearPublished){
+        book.setYearPublished(newYearPublished);
+    }
+
+    public void updateBookIsPaperback(Book book, boolean isPaperback){
         book.setPaperback(isPaperback);
     }
 
