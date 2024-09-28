@@ -1,4 +1,4 @@
-public class Book {
+public class Book implements BookValidation{
     private String title;
     private String author;
     private int yearPublished;
@@ -59,20 +59,35 @@ public class Book {
         System.out.println("Year Published: " + yearPublished);
         System.out.println("Price: $" + price);
     }
-
+    
+    @Override
     public boolean isPriceValid() {
         return price > 0;
     }
 
+    @Override
     public boolean isTitleValid() {
         return title != null && !title.isEmpty();
     }
 
+    @Override
     public boolean isAuthorValid() {
         return author != null && !author.isEmpty();
     }
 
+    @Override
     public boolean isYearPublishedValid() {
         return yearPublished > 0;
     }
+}
+
+interface BookValidation{
+
+    public boolean isPriceValid();
+
+    public boolean isTitleValid();
+
+    public boolean isAuthorValid();
+
+    public boolean isYearPublishedValid();
 }
