@@ -1,4 +1,4 @@
-public interface BookValidation {
+public interface ItemValidation {
 
     public boolean isPriceValid();
 

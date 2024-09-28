@@ -1,4 +1,4 @@
-public class Book implements BookValidation{
+public class Book implements ItemValidation{
     private String title;
     private String author;
     private int yearPublished;
