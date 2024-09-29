@@ -67,7 +67,7 @@ public class User {
         order.setBillingAddress(billingAddress);
         order.setOrderStatus(PLACED);
         // order.setDateCreated("2024-01-01");
-        order.setDateCreate(new Date(2024, 1, 1));
+        order.setDateCreated(new Date(2024, 1, 1));
         order.setUserName(this.name);
         orders.add(order);
     }
