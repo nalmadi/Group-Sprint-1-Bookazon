@@ -5,8 +5,8 @@ enum OrderStatus {
 }
 
 public class Order {
-    private String dateCreated;
-    private String dateShipped;
+    private Date dateCreated;
+    private Date dateShipped;
     private String userName;
     private OrderStatus orderStatus;
     private Address shippingAddress;
@@ -31,11 +31,11 @@ public class Order {
         this.orderStatus = status;
     }
 
-    public void setDateCreated(String date) {
+    public void setDateCreated(Date date) {
         this.dateCreated = date;
     }
 
-    public void setDateShipped(String date) {
+    public void setDateShipped(Date date) {
         this.dateShipped = date;
     }
 
