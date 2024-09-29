@@ -19,7 +19,7 @@ public class Bookazon {
         users.add(user);
     }
 
-    public void viewBooks() {
+    public void viewCartItems() {
         for (CartItem item : items) {
             item.printCartItemDetails();
         }
