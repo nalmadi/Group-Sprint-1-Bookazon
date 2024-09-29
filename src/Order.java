@@ -9,6 +9,7 @@ public class Order {
     private String dateShipped;
     private String userName;
     private OrderStatus orderStatus;
+    private Subscription subscription;
     private String shippingAddressLine1;
     private String shippingAddressLine2;
     private String shippingAddressCity;
@@ -24,7 +25,7 @@ public class Order {
     private ArrayList<CartItem> items;
     private double orderPrice;
 
-    public Order(Cart cart, String subscription) {
+    public Order(Cart cart, Subscription subscription) {
         this.items = cart.getItems();
         this.orderPrice = calculatePrice();
     }
@@ -107,7 +108,7 @@ class SilverSubscription implements Subscription {
     }
 }
 
-class NoSubscription implements Subscription {
+class NormalSubscription implements Subscription {
     public double applyDiscount(double price) {
         return price; // No discount
     }
