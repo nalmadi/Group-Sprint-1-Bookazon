@@ -42,6 +42,14 @@ public class Book extends CartItem {
         System.out.println("Paperback: " + (isPaperback ? "Yes" : "No"));
     }
 
+    public void updateBookDetails(String newTitle, String newAuthor, int newYearPublished, double newPrice, boolean isPaperback) {
+        setTitle(newTitle);
+        setAuthor(newAuthor);
+        setYearPublished(newYearPublished);
+        setPrice(newPrice);
+        setPaperback(isPaperback);
+    }
+
     public boolean isPriceValid() {
         return getPrice() > 0;
     }
