@@ -27,6 +27,7 @@ public class Order {
 
     public Order(Cart cart, Subscription subscription) {
         this.items = cart.getItems();
+        this.subscription = subscription;
         this.orderPrice = calculatePrice();
     }
 
