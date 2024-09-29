@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Bookazon {
 
-    private ArrayList<Book> books;
+    private ArrayList<Media> books;
     private ArrayList<User> users;
 
     public Bookazon() {
@@ -11,7 +11,7 @@ public class Bookazon {
         users = new ArrayList<>();
     }
 
-    public void addBook(Book book) {
+    public void addBook(Media book) {
         books.add(book);
     }
 
@@ -20,7 +20,7 @@ public class Bookazon {
     }
 
     public void viewBooks() {
-        for (Book book : books) {
+        for (Media book : books) {
             book.printBookDetails();
         }
     }
@@ -31,7 +31,7 @@ public class Bookazon {
         }
     }
 
-    public void removeBook(Book book) {
+    public void removeBook(Media book) {
         books.remove(book);
     }
 
@@ -39,13 +39,30 @@ public class Bookazon {
         users.remove(user);
     }
 
-    public void updateBookDetails(Book book, String newTitle, String newAuthor, int newYearPublished, double newPrice, boolean isPaperback) {
+    public void updateBookTitle(Media book, String newTitle){
         book.setTitle(newTitle);
-        book.setAuthor(newAuthor);
-        book.setYearPublished(newYearPublished);
+    }
+
+
+    public void updateBookPrice(Media book, double newPrice){
         book.setPrice(newPrice);
+    }
+
+    public void updateBookAuthor(Media book, String newAuthor){
+        book.setAuthor(newAuthor);
+    }
+
+    public void updateBookYearPublished(Media book, int newYearPublished){
+        book.setYearPublished(newYearPublished);
+    }
+
+    // this only work for the Book class not other subclass of media class
+    // needs further changes
+    /* 
+    public void updateBookIsPaperback(Media book, boolean isPaperback){
         book.setPaperback(isPaperback);
     }
+    */
 
     public void updateRole(User user, Subscription role) {
         user.setSubscription(role);
@@ -62,8 +79,9 @@ public class Bookazon {
         bookazon.addBook(new Book("1984", "George Orwell", 1949, 8.99, true));
 
         // create users
-        bookazon.addUser(new User("Alice", "normal", new Cart()));
-        bookazon.addUser(new User("Bob", "gold", new Cart()));
+        bookazon.addUser(new User("Alice", new NormalSubscription(), new Cart()));
+        bookazon.addUser(new User("Bob", new GoldSubscription(), new Cart()));
+
 
         // add books to cart
         bookazon.users.get(0).addToCart(bookazon.books.get(0), 1);
