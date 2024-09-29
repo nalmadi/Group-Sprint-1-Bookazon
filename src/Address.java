@@ -49,4 +49,7 @@ public class Address {
     public void setCountry(String country) {
         this.country = country;
     }
+    public String toString() {
+        return line1 + "\n" + line2 + "\n" + city + ", " + state + " " + zip + "\n" + country;
+    }
 }
