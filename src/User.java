@@ -40,11 +40,11 @@ public class User {
         this.billingAddress.setAddress(newAddress);
     }
 
-    public void addToCart(Book book, int quantity) {
+    public void addToCart(Media book, int quantity) {
         cart.addItem(new CartItem(book.getTitle(), book.getPrice(), quantity));
     }
 
-    public void removeFromCart(Book book) {
+    public void removeFromCart(Media book) {
         for (CartItem item : cart.getItems()) {
             if (item.getName().equals(book.getTitle())) {
                 cart.getItems().remove(item);
