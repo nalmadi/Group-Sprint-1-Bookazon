@@ -39,11 +39,24 @@ public class Bookazon {
         users.remove(user);
     }
 
-    public void updateBookDetails(Book book, String newTitle, String newAuthor, int newYearPublished, double newPrice, boolean isPaperback) {
+    public void updateBookTitle(Book book, String newTitle){
         book.setTitle(newTitle);
-        book.setAuthor(newAuthor);
-        book.setYearPublished(newYearPublished);
+    }
+
+
+    public void updateBookPrice(Book book, double newPrice){
         book.setPrice(newPrice);
+    }
+
+    public void updateBookAuthor(Book book, String newAuthor){
+        book.setAuthor(newAuthor);
+    }
+
+    public void updateBookYearPublished(Book book, int newYearPublished){
+        book.setYearPublished(newYearPublished);
+    }
+
+    public void updateBookIsPaperback(Book book, boolean isPaperback){
         book.setPaperback(isPaperback);
     }
 
@@ -73,8 +86,8 @@ public class Bookazon {
         bookazon.users.get(0).viewCart();
 
         // set shipping address and billing address
-        bookazon.users.get(0).setShippingAddress("123 Main St", "", "Springfield", "IL", "62701", "USA");
-        bookazon.users.get(0).setBillingAddress("456 Elm St", "", "Springfield", "IL", "62702", "USA");
+        bookazon.users.get(0).setShippingAddress(new Address("123 Main St", "", "Springfield", "IL", "62701", "USA"));
+        bookazon.users.get(0).setBillingAddress(new Address("456 Elm St", "", "Springfield", "IL", "62702", "USA"));
 
         // checkout
         bookazon.users.get(0).checkout();
