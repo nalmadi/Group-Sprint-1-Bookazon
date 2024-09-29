@@ -34,7 +34,7 @@ public class DVD extends CartItem {
         this.showDuration = showDuration;
     }
 
-    public void printBookDetails() {
+    public void printDVDDetails() {
         System.out.println("Title: " + getName());  // Using getName() from the parent class
         System.out.println("Producer: " + producer);
         System.out.println("Year Released: " + releaseYear);
