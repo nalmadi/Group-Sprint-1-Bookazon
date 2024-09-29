@@ -70,7 +70,4 @@ public class AudioBook extends CartItem {
         return releaseYear > 0;
     }
 
-    public boolean isGenreValid() {
-        return genre != null && !genre.isEmpty();
-    }
 }
