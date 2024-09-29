@@ -1,11 +1,25 @@
 public interface ItemValidation {
 
-    public boolean isPriceValid();
+    String getTitle();
+    String getAuthor();
+    double getPrice();
+    int getYearPublished();
 
-    public boolean isTitleValid();
+    default boolean isPriceValid() {
+        return getPrice() > 0;
+    }
 
-    public boolean isAuthorValid();
+    default boolean isTitleValid() {
+        String title = getTitle();
+        return title != null && !title.isEmpty();
+    }
 
-    public boolean isYearPublishedValid();
+    default boolean isAuthorValid() {
+        String author = getAuthor();
+        return author != null && !author.isEmpty();
+    }
 
+    default boolean isYearPublishedValid() {
+        return getYearPublished() > 0;
+    }
 }
