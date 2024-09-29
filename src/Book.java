@@ -4,7 +4,6 @@ public class Book extends Media implements ItemValidation{
     public Book(String title, String author, int yearPublished, double price, boolean isPaperback) {
         super(title, author, yearPublished, price);
         this.isPaperback = isPaperback;
-        this.mediaType = "Book";
     }
 
     public boolean isPaperback() {

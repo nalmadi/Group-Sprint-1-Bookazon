@@ -3,7 +3,6 @@ public abstract class Media {
     protected String author;
     protected int yearPublished;
     protected double price;
-    protected String mediaType;
 
     public Media(String title, String author, int yearPublished, double price) {
         this.title = title;
