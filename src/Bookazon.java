@@ -77,6 +77,8 @@ public class Bookazon {
         bookazon.addBook(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99, true));
         bookazon.addBook(new Book("To Kill a Mockingbird", "Harper Lee", 1960, 7.99, false));
         bookazon.addBook(new Book("1984", "George Orwell", 1949, 8.99, true));
+        bookazon.addBook(new DVDs("Inception", "Christopher Nolan", 2010, 19.99, "Christopher Nolan", 148));
+        bookazon.addBook(new Ebook("1984", "George Orwell", 1949, 7.99, "EPUB", 2));
 
         // create users
         bookazon.addUser(new User("Alice", new NormalSubscription(), new Cart()));
