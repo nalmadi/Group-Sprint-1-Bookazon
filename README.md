@@ -39,7 +39,7 @@ We've applied SOLID principles to create a robust, extensible architecture:
 
 ## 👥 Meet the Team
 
-| ![Agnes](https://via.placeholder.com/100) | ![Cathy](https://via.placeholder.com/100) | ![James](https://via.placeholder.com/100) | ![Zaynab](https://via.placeholder.com/100) |
+| ![Agnes](https://github.com/AgLyx3/Group-Sprint-1-Bookazon/blob/16-create-an-elaborate-and-creative-readmemd-priority/images/Agnes.jpg) | ![Cathy](https://github.com/AgLyx3/Group-Sprint-1-Bookazon/blob/16-create-an-elaborate-and-creative-readmemd-priority/images/Cathy.jpg) | ![James](https://github.com/AgLyx3/Group-Sprint-1-Bookazon/blob/16-create-an-elaborate-and-creative-readmemd-priority/images/James.jpg) | ![Zaynab](https://via.placeholder.com/100) |
 |:---:|:---:|:---:|:---:|
 | Agnes | Cathy | James | Zaynab |
 
