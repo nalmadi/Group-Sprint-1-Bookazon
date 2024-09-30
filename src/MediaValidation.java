@@ -1,4 +1,4 @@
-public interface ItemValidation {
+public interface MediaValidation {
 
     String getTitle();
     String getAuthor();

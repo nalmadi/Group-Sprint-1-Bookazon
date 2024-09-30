@@ -1,4 +1,4 @@
-public abstract class Media implements ItemValidation{
+public abstract class Media implements MediaValidation{
     protected String title;
     protected String author;
     protected int yearPublished;
