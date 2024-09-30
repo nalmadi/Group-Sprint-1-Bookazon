@@ -39,7 +39,8 @@ public class User {
     }
 
     public void removeFromCart(CartItem cartItem) {
-        for (CartItem item : cart.getItems()) {
+        List<CartItem> itemsCopy = new ArrayList<>(cart.getItems());
+        for (CartItem item : itemsCopy) {
             if (item.getName().equals(cartItem.getTitle())) {
                 cart.getItems().remove(item);
                 break;
