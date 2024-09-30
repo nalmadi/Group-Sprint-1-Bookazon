@@ -11,7 +11,7 @@ public class Bookazon {
         users = new ArrayList<>();
     }
 
-    public void addBook(Media product) {
+    public void addProduct(Media product) {
         products.add(product);
     }
 
@@ -19,7 +19,7 @@ public class Bookazon {
         users.add(user);
     }
 
-    public void viewBooks() {
+    public void viewPrducts() {
         for (Media product : products) {
             product.printBookDetails();
         }
@@ -31,7 +31,7 @@ public class Bookazon {
         }
     }
 
-    public void removeBook(Media product) {
+    public void removeProduct(Media product) {
         products.remove(product);
     }
 
@@ -39,20 +39,20 @@ public class Bookazon {
         users.remove(user);
     }
 
-    public void updateBookTitle(Media product, String newTitle){
+    public void updateProductTitle(Media product, String newTitle){
         product.setTitle(newTitle);
     }
 
 
-    public void updateBookPrice(Media product, double newPrice){
+    public void updateProductPrice(Media product, double newPrice){
         product.setPrice(newPrice);
     }
 
-    public void updateBookAuthor(Media product, String newAuthor){
+    public void updateProductAuthor(Media product, String newAuthor){
         product.setAuthor(newAuthor);
     }
 
-    public void updateBookYearPublished(Media product, int newYearPublished){
+    public void updateProductYearPublished(Media product, int newYearPublished){
         product.setYearPublished(newYearPublished);
     }
 
@@ -74,11 +74,11 @@ public class Bookazon {
         Bookazon bookazon = new Bookazon();
         
         // create books
-        bookazon.addBook(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99, true));
-        bookazon.addBook(new Book("To Kill a Mockingbird", "Harper Lee", 1960, 7.99, false));
-        bookazon.addBook(new Book("1984", "George Orwell", 1949, 8.99, true));
-        bookazon.addBook(new DVDs("Inception", "Christopher Nolan", 2010, 19.99, "Christopher Nolan", 148));
-        bookazon.addBook(new Ebook("1984", "George Orwell", 1949, 7.99, "EPUB", 2));
+        bookazon.addProduct(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99, true));
+        bookazon.addProduct(new Book("To Kill a Mockingbird", "Harper Lee", 1960, 7.99, false));
+        bookazon.addProduct(new Book("1984", "George Orwell", 1949, 8.99, true));
+        bookazon.addProduct(new DVDs("Inception", "Christopher Nolan", 2010, 19.99, "Christopher Nolan", 148));
+        bookazon.addProduct(new Ebook("1984", "George Orwell", 1949, 7.99, "EPUB", 2));
 
         // create users
         bookazon.addUser(new User("Alice", new NormalSubscription(), new Cart()));
