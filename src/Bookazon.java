@@ -3,16 +3,16 @@ import java.util.ArrayList;
 
 public class Bookazon {
 
-    private ArrayList<Media> books;
+    private ArrayList<Media> products;
     private ArrayList<User> users;
 
     public Bookazon() {
-        books = new ArrayList<>();
+        products = new ArrayList<>();
         users = new ArrayList<>();
     }
 
-    public void addBook(Media book) {
-        books.add(book);
+    public void addBook(Media product) {
+        products.add(product);
     }
 
     public void addUser(User user) {
@@ -20,8 +20,8 @@ public class Bookazon {
     }
 
     public void viewBooks() {
-        for (Media book : books) {
-            book.printBookDetails();
+        for (Media product : products) {
+            product.printBookDetails();
         }
     }
 
@@ -31,29 +31,29 @@ public class Bookazon {
         }
     }
 
-    public void removeBook(Media book) {
-        books.remove(book);
+    public void removeBook(Media product) {
+        products.remove(product);
     }
 
     public void removeUser(User user) {
         users.remove(user);
     }
 
-    public void updateBookTitle(Media book, String newTitle){
-        book.setTitle(newTitle);
+    public void updateBookTitle(Media product, String newTitle){
+        product.setTitle(newTitle);
     }
 
 
-    public void updateBookPrice(Media book, double newPrice){
-        book.setPrice(newPrice);
+    public void updateBookPrice(Media product, double newPrice){
+        product.setPrice(newPrice);
     }
 
-    public void updateBookAuthor(Media book, String newAuthor){
-        book.setAuthor(newAuthor);
+    public void updateBookAuthor(Media product, String newAuthor){
+        product.setAuthor(newAuthor);
     }
 
-    public void updateBookYearPublished(Media book, int newYearPublished){
-        book.setYearPublished(newYearPublished);
+    public void updateBookYearPublished(Media product, int newYearPublished){
+        product.setYearPublished(newYearPublished);
     }
 
     // this only work for the Book class not other subclass of media class
@@ -86,8 +86,8 @@ public class Bookazon {
 
 
         // add books to cart
-        bookazon.users.get(0).addToCart(bookazon.books.get(0), 1);
-        bookazon.users.get(0).addToCart(bookazon.books.get(1), 2);
+        bookazon.users.get(0).addToCart(bookazon.products.get(0), 1);
+        bookazon.users.get(0).addToCart(bookazon.products.get(1), 2);
 
         // view cart
         bookazon.users.get(0).viewCart();
