@@ -1,20 +1,18 @@
 public class CartItem {
-    private String itemName;
-    private double price;
+    private Item item;
     private int quantity;
 
-    public CartItem(String itemName, double price, int quantity) {
-        this.itemName = itemName;
-        this.price = price;
+    public CartItem(Item item, int quantity) {
+        this.item = item;
         this.quantity = quantity;
     }
 
-    public String getName() {
-        return itemName;
+    public Item getItem() {
+        return this.item;
     }
 
     public double getPrice() {
-        return price;
+        return item.getPrice();
     }
 
     public int getQuantity() {
@@ -25,11 +23,11 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    public boolean equals(CartItem item) {
-        return this.itemName.equals(item.getName());
+    public boolean equals(CartItem cartitem) {
+        return this.item.equals(cartitem.getItem());
     }
 
     public double getTotalPrice() {
-        return price * quantity;
+        return getPrice() * quantity;
     }
 }
