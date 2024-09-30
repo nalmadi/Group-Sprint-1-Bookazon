@@ -40,12 +40,12 @@ public class User {
         this.billingAddress.setAddress(newAddress);
     }
 
-    public void addToCart(Media book, int quantity) {
-        cart.addBookToCart(book, quantity);
+    public void addToCart(Media product, int quantity) {
+        cart.addBookToCart(product, quantity);
     }
 
-    public void removeFromCart(Media book) {
-        cart.removeBookFromCart(book);
+    public void removeFromCart(Media product) {
+        cart.removeBookFromCart(product);
     }
 
     public void viewOrders() {

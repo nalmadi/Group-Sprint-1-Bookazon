@@ -19,7 +19,7 @@ public class Bookazon {
         users.add(user);
     }
 
-    public void viewPrducts() {
+    public void viewProducts() {
         for (Media product : products) {
             product.printBookDetails();
         }
@@ -72,8 +72,8 @@ public class Bookazon {
         return users.get(index);
     }
 
-    public Media getBook(int index){
-        return books.get(index);
+    public Media getProduct(int index){
+        return products.get(index);
     }
 
     
