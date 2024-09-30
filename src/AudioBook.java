@@ -44,7 +44,7 @@ public class AudioBook extends CartItem {
         this.releaseYear = releaseYear;
     }
 
-    public void printAudioBookDetails() {
+    public void printCartItemDetails() {
         System.out.println("Title: " + getName());  // Using getName() from the parent class
         System.out.println("Author: " + author);
         System.out.println("Narrator: " + narrator);

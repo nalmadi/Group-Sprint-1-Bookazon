@@ -45,7 +45,7 @@ public class Ebook extends CartItem {
     }
 
     // Method to display Ebook details
-    public void printEbookDetails() {
+    public void printCartItemDetails() {
         System.out.println("Title: " + getName());  // Using getName() from the parent class
         System.out.println("Author: " + author);
         System.out.println("Release Year: " + releaseYear);
