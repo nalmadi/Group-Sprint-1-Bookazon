@@ -41,11 +41,11 @@ public class User {
     }
 
     public void addToCart(Media product, int quantity) {
-        cart.addBookToCart(product, quantity);
+        cart.addProductToCart(product, quantity);
     }
 
     public void removeFromCart(Media product) {
-        cart.removeBookFromCart(product);
+        cart.removeProductFromCart(product);
     }
 
     public void viewOrders() {

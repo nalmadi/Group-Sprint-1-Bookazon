@@ -24,8 +24,8 @@ public class Ebook extends Media {
         this.fileSize = fileSize;
     }
 
-    public void printBookDetails() {
-        super.printBookDetails();
+    public void printProductDetails() {
+        super.printProductDetails();
         System.out.println("Format: " + format);
         System.out.println("File Size: " + fileSize + " MB");
     }

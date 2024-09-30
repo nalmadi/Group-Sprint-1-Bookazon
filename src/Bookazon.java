@@ -21,7 +21,7 @@ public class Bookazon {
 
     public void viewProducts() {
         for (Media product : products) {
-            product.printBookDetails();
+            product.printProductDetails();
         }
     }
 

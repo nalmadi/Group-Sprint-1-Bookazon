@@ -36,13 +36,13 @@ public class Cart {
         return items;
     }
 
-    public void addBookToCart(Media book, int quantity) {
-        addItem(new CartItem(book.getTitle(), book.getPrice(), quantity));
+    public void addProductToCart(Media product, int quantity) {
+        addItem(new CartItem(product.getTitle(), product.getPrice(), quantity));
     }
 
-    public void removeBookFromCart(Media book) {
+    public void removeProductFromCart(Media product) {
         for (CartItem item : getItems()) {
-            if (item.getName().equals(book.getTitle())) {
+            if (item.getName().equals(product.getTitle())) {
                 getItems().remove(item);
                 break;
             }
