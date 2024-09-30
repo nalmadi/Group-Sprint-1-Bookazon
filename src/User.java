@@ -41,16 +41,11 @@ public class User {
     }
 
     public void addToCart(Media book, int quantity) {
-        cart.addItem(new CartItem(book.getTitle(), book.getPrice(), quantity));
+        cart.addBookToCart(book, quantity);
     }
 
     public void removeFromCart(Media book) {
-        for (CartItem item : cart.getItems()) {
-            if (item.getName().equals(book.getTitle())) {
-                cart.getItems().remove(item);
-                break;
-            }
-        }
+        cart.removeBookFromCart(book);
     }
 
     public void viewOrders() {
@@ -66,7 +61,10 @@ public class User {
         order.setShippingAddress(shippingAddress);
         order.setBillingAddress(billingAddress);
         order.setOrderStatus(OrderStatus.PLACED);
+
+
         order.setDateCreated(new Date(2024, 1, 1));
+
         order.setUserName(this.name);
         orders.add(order);
     }
