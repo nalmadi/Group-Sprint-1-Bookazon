@@ -16,7 +16,6 @@ public class Order {
     private ArrayList<CartItem> items;
     
     private double orderPrice;
-    private Subscription subscription;
     private double totalPrice;
 
     public Order(Cart cart, Subscription subscription) {
