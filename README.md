@@ -39,7 +39,7 @@ We've applied SOLID principles to create a robust, extensible architecture:
 
 ## 👥 Meet the Team
 
-| ![Agnes](https://github.com/AgLyx3/Group-Sprint-1-Bookazon/blob/16-create-an-elaborate-and-creative-readmemd-priority/images/Agnes.jpg) | ![Cathy](https://github.com/AgLyx3/Group-Sprint-1-Bookazon/blob/16-create-an-elaborate-and-creative-readmemd-priority/images/Cathy.jpg) | ![James](https://github.com/AgLyx3/Group-Sprint-1-Bookazon/blob/16-create-an-elaborate-and-creative-readmemd-priority/images/James.jpg) | ![Zaynab](https://via.placeholder.com/100) |
+| <img src="https://github.com/AgLyx3/Group-Sprint-1-Bookazon/blob/16-create-an-elaborate-and-creative-readmemd-priority/images/Agnes.jpg" width="200" height="200" alt="Agnes"> |<img src="https://github.com/AgLyx3/Group-Sprint-1-Bookazon/blob/16-create-an-elaborate-and-creative-readmemd-priority/images/Cathy.jpg" width="200" height="200" alt="Cathy"> | <img src="https://github.com/AgLyx3/Group-Sprint-1-Bookazon/blob/16-create-an-elaborate-and-creative-readmemd-priority/images/James.jpg" width="200" height="200" alt="James"> | ![Zaynab](https://via.placeholder.com/100) |
 |:---:|:---:|:---:|:---:|
 | Agnes | Cathy | James | Zaynab |
 
