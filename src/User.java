@@ -41,16 +41,11 @@ public class User {
     }
 
     public void addToCart(Media book, int quantity) {
-        cart.addItem(new CartItem(book.getTitle(), book.getPrice(), quantity));
+        cart.addBookToCart(book, quantity);
     }
 
     public void removeFromCart(Media book) {
-        for (CartItem item : cart.getItems()) {
-            if (item.getName().equals(book.getTitle())) {
-                cart.getItems().remove(item);
-                break;
-            }
-        }
+        cart.removeBookFromCart(book);
     }
 
     public void viewOrders() {
@@ -65,7 +60,7 @@ public class User {
         Address billingAddress = new Address("123 Main St", "", "Springfield", "IL", "62701", "USA");
         order.setShippingAddress(shippingAddress);
         order.setBillingAddress(billingAddress);
-        order.setOrderStatus(PLACED);
+        order.setOrderStatus(OrderStatus.PLACED);
         order.setDateCreated("2024-01-01");
         order.setUserName(this.name);
         orders.add(order);
