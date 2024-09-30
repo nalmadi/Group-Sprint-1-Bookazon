@@ -4,13 +4,32 @@ public abstract class Media implements MediaValidation{
     protected int yearPublished;
     protected double price;
 
-    public Media(String title, String author, int yearPublished, double price) {
+    protected int stockCount;
+    private boolean isInStock; 
+
+    public Media(String title, String author, int yearPublished, double price, int stockCount) {
         this.title = title;
         this.author = author;
         this.yearPublished = yearPublished;
         this.price = price;
+        this.stockCount = stockCount;
+        if(this.stockCount > 0){
+            this.isInStock = true;
+        }
     }
 
+    public boolean isInStock(){
+        return this.isInStock;
+    }
+
+    public int getStockCount(){
+        return this.stockCount;
+    }
+
+    public void setStockCount(int newStockCount){
+        this.stockCount = newStockCount;
+    }
+    
     public String getTitle() {
         return title;
     }
@@ -48,6 +67,7 @@ public abstract class Media implements MediaValidation{
         System.out.println("Author: " + author);
         System.out.println("Year Published: " + yearPublished);
         System.out.println("Price: $" + price);
+        System.out.println(this.stockCount + " items left in stock");
     }
     
 }
