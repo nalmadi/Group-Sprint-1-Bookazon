@@ -122,7 +122,7 @@ public class TestGUI {
         boolean isPaperback = Boolean.parseBoolean(paperbackField.getText());
 
         Media newBook = new Book(title, author, year, price, isPaperback);
-        bookazon.addBook(newBook);
+        bookazon.addProduct(newBook);
 
         libraryListModel.addElement(title + " (" + year + ") - $" + price + " - IsPaperback: " + isPaperback);
     }
@@ -133,7 +133,7 @@ public class TestGUI {
             return;
         } else {
 
-            Media selectedBook = bookazon.getBook(selectedIndex);
+            Media selectedBook = bookazon.getProduct(selectedIndex);
             int quantity = 1;
 
             bookazon.getUser(0).addToCart(selectedBook, quantity);

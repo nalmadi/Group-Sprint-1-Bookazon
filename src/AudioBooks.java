@@ -24,8 +24,8 @@ public class AudioBooks extends Media {
         this.narrator = narrator;
     }
 
-    public void printBookDetails() {
-        super.printBookDetails();
+    public void printProductDetails() {
+        super.printProductDetails();
         System.out.println("Duration: " + duration + " minutes");
         System.out.println("Narrator: " + narrator);
     }
