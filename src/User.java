@@ -42,6 +42,7 @@ public class User {
         cart.viewCartDetails();
     }
 
+<<<<<<< Updated upstream
     public void setShippingAddress(String line1, String line2, String city, String state, String zip, String country) {
         this.shippingAddressLine1 = line1;
         this.shippingAddressLine2 = line2;
@@ -58,6 +59,14 @@ public class User {
         this.billingAddressState = state;
         this.billingAddressZip = zip;
         this.billingAddressCountry = country;
+=======
+    public void setShippingAddress(Address newAddress) {
+        this.shippingAddress = newAddress;
+    }
+
+    public void setBillingAddress(Address newAddress) {
+        this.billingAddress = newAddress;
+>>>>>>> Stashed changes
     }
 
     public void addToCart(Book book, int quantity) {
@@ -86,6 +95,17 @@ public class User {
         order.setOrderStatus("Order Placed");
         order.setDateCreated("2024-01-01");
         order.setUserName(this.name);
+        orders.add(order);
+    }
+
+    public void checkout(Address shippingAddress, Address billingAddress, String date) {
+        Order order = new Order(cart, this.subscription);
+        order.setShippingAddress(shippingAddress);
+        order.setBillingAddress(billingAddress);
+        order.setOrderStatus(OrderStatus.PLACED);
+        order.setDateCreated(date);
+        order.setUserName(this.name);
+        order.setDateShipped("TBD");
         orders.add(order);
     }
 }

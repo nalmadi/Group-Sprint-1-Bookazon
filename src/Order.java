@@ -25,6 +25,7 @@ public class Order {
         this.orderPrice = calculatePrice(subscription);
     }
 
+<<<<<<< Updated upstream
     public void setShippingAddress(String line1, String line2, String city, String state, String zip, String country) {
         this.shippingAddressLine1 = line1;
         this.shippingAddressLine2 = line2;
@@ -41,6 +42,14 @@ public class Order {
         this.billingAddressState = state;
         this.billingAddressZip = zip;
         this.billingAddressCountry = country;
+=======
+    public void setShippingAddress(Address newAddress) {
+        this.shippingAddress = newAddress;
+    }
+
+    public void setBillingAddress(Address newAddress) {
+        this.billingAddress = newAddress;
+>>>>>>> Stashed changes
     }
 
     public void setOrderStatus(String status) {

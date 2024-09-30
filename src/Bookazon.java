@@ -51,6 +51,14 @@ public class Bookazon {
         user.setSubscription(role);
     }
 
+    public User getUser(int index){
+        return users.get(index);
+    }
+
+    public Media getBook(int index){
+        return books.get(index);
+    }
+
     
     public static void main(String[] args) {
         
@@ -61,9 +69,15 @@ public class Bookazon {
         bookazon.addBook(new Book("To Kill a Mockingbird", "Harper Lee", 1960, 7.99, false));
         bookazon.addBook(new Book("1984", "George Orwell", 1949, 8.99, true));
 
+        Cart Newcart = new Cart();
         // create users
+<<<<<<< Updated upstream
         bookazon.addUser(new User("Alice", "normal"));
         bookazon.addUser(new User("Bob", "gold"));
+=======
+        bookazon.addUser(new User("Alice", new NormalSubscription(), Newcart));
+        bookazon.addUser(new User("Bob", new GoldSubscription(), Newcart));
+>>>>>>> Stashed changes
 
         // add books to cart
         bookazon.users.get(0).addToCart(bookazon.books.get(0), 1);
