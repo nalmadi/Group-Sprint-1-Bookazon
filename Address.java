@@ -16,16 +16,18 @@ public class Address {
     }
 
     public void setAddress(ArrayList<String> addressDetials) {
-        try {
-            this.line1 = addressDetials.get(0);
-            this.line2 = addressDetials.get(1);
-            this.city = addressDetials.get(2);
-            this.state = addressDetials.get(3);
-            this.zip = addressDetials.get(4);
-            this.country = addressDetials.get(5);
+        validateAddressDetails(addressDetials); // validates the address details
+        this.line1 = addressDetials.get(0);
+        this.line2 = addressDetials.get(1);
+        this.city = addressDetials.get(2);
+        this.state = addressDetials.get(3);
+        this.zip = addressDetials.get(4);
+        this.country = addressDetials.get(5);      
+    }
+
+    public void validateAddressDetails(ArrayList<String> addressDetials){
+        if (addressDetials.size() != 6) {
+            throw new IllegalArgumentException("The address details is not correct. It should have 6 items");
         }
-        catch(ArrayIndexOutOfBoundsException e){
-            System.out.println("the address details list should have 6 elements");
-        };
     }
 }
