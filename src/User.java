@@ -3,26 +3,16 @@ import java.util.ArrayList;
 
 public class User {
     private String name;
-    private String subscription;
+    private Subscription subscription;
     private Cart cart;
     private ArrayList<Order> orders;
-    private String shippingAddressLine1;
-    private String shippingAddressLine2;
-    private String shippingAddressCity;
-    private String shippingAddressState;
-    private String shippingAddressZip;
-    private String shippingAddressCountry;
-    private String billingAddressLine1;
-    private String billingAddressLine2;
-    private String billingAddressCity;
-    private String billingAddressState;
-    private String billingAddressZip;
-    private String billingAddressCountry;
+    private Address shippingAddress;
+    private Address billingAddress;
 
-    public User(String name, String subscription) {
+    public User(String name, Subscription subscription, Cart cart) {
         this.name = name;
         this.subscription = subscription;  // normal, gold, platinum, silver membership
-        this.cart = new Cart();
+        this.cart = cart;
         this.orders = new ArrayList<>();
     }
 
@@ -30,11 +20,11 @@ public class User {
         return name;
     }
 
-    public String getSubscription() {
+    public Subscription getSubscription() {
         return subscription;
     }
 
-    public void setSubscription(String role) {
+    public void setSubscription(Subscription role) {
         this.subscription = role;
     }
 
@@ -42,44 +32,20 @@ public class User {
         cart.viewCartDetails();
     }
 
-<<<<<<< Updated upstream
-    public void setShippingAddress(String line1, String line2, String city, String state, String zip, String country) {
-        this.shippingAddressLine1 = line1;
-        this.shippingAddressLine2 = line2;
-        this.shippingAddressCity = city;
-        this.shippingAddressState = state;
-        this.shippingAddressZip = zip;
-        this.shippingAddressCountry = country;
-    }
-
-    public void setBillingAddress(String line1, String line2, String city, String state, String zip, String country) {
-        this.billingAddressLine1 = line1;
-        this.billingAddressLine2 = line2;
-        this.billingAddressCity = city;
-        this.billingAddressState = state;
-        this.billingAddressZip = zip;
-        this.billingAddressCountry = country;
-=======
     public void setShippingAddress(Address newAddress) {
-        this.shippingAddress = newAddress;
+        this.shippingAddress.setAddress(newAddress);
     }
 
     public void setBillingAddress(Address newAddress) {
-        this.billingAddress = newAddress;
->>>>>>> Stashed changes
+        this.billingAddress.setAddress(newAddress);
     }
 
-    public void addToCart(Book book, int quantity) {
-        cart.addItem(new CartItem(book.getTitle(), book.getPrice(), quantity));
+    public void addToCart(Media book, int quantity) {
+        cart.addBookToCart(book, quantity);
     }
 
-    public void removeFromCart(Book book) {
-        for (CartItem item : cart.getItems()) {
-            if (item.getName().equals(book.getTitle())) {
-                cart.getItems().remove(item);
-                break;
-            }
-        }
+    public void removeFromCart(Media book) {
+        cart.removeBookFromCart(book);
     }
 
     public void viewOrders() {
@@ -90,10 +56,15 @@ public class User {
 
     public void checkout() {
         Order order = new Order(cart, this.subscription);
-        order.setShippingAddress("123 Main St", "", "Springfield", "IL", "62701", "USA");
-        order.setBillingAddress("123 Main St", "", "Springfield", "IL", "62701", "USA");
-        order.setOrderStatus("Order Placed");
-        order.setDateCreated("2024-01-01");
+        Address shippingAddress = new Address("123 Main St", "", "Springfield", "IL", "62701", "USA");
+        Address billingAddress = new Address("123 Main St", "", "Springfield", "IL", "62701", "USA");
+        order.setShippingAddress(shippingAddress);
+        order.setBillingAddress(billingAddress);
+        order.setOrderStatus(OrderStatus.PLACED);
+
+
+        order.setDateCreated(new Date(2024, 1, 1));
+
         order.setUserName(this.name);
         orders.add(order);
     }

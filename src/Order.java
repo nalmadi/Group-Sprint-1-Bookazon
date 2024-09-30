@@ -1,66 +1,47 @@
 import java.util.ArrayList;
 
+enum OrderStatus {
+    PLACED, PROCESSING, SHIPPED, DELIVERED, CANCELLED
+}
+
 public class Order {
-    private String dateCreated;
-    private String dateShipped;
+    private Date dateCreated;
+    private Date dateShipped;
     private String userName;
-    private String orderStatus;
-    private String shippingAddressLine1;
-    private String shippingAddressLine2;
-    private String shippingAddressCity;
-    private String shippingAddressState;
-    private String shippingAddressZip;
-    private String shippingAddressCountry;
-    private String billingAddressLine1;
-    private String billingAddressLine2;
-    private String billingAddressCity;
-    private String billingAddressState;
-    private String billingAddressZip;
-    private String billingAddressCountry;
+    private OrderStatus orderStatus;
+    private Subscription subscription;
+    private Address shippingAddress;
+    private Address billingAddress;
+  
     private ArrayList<CartItem> items;
+    
     private double orderPrice;
+    private double totalPrice;
 
-    public Order(Cart cart, String subscription) {
+    public Order(Cart cart, Subscription subscription) {
         this.items = cart.getItems();
-        this.orderPrice = calculatePrice(subscription);
+        this.subscription = subscription;
+        this.orderPrice = calculatePrice();
     }
 
-<<<<<<< Updated upstream
-    public void setShippingAddress(String line1, String line2, String city, String state, String zip, String country) {
-        this.shippingAddressLine1 = line1;
-        this.shippingAddressLine2 = line2;
-        this.shippingAddressCity = city;
-        this.shippingAddressState = state;
-        this.shippingAddressZip = zip;
-        this.shippingAddressCountry = country;
-    }
-
-    public void setBillingAddress(String line1, String line2, String city, String state, String zip, String country) {
-        this.billingAddressLine1 = line1;
-        this.billingAddressLine2 = line2;
-        this.billingAddressCity = city;
-        this.billingAddressState = state;
-        this.billingAddressZip = zip;
-        this.billingAddressCountry = country;
-=======
     public void setShippingAddress(Address newAddress) {
-        this.shippingAddress = newAddress;
+        this.shippingAddress.setAddress(newAddress);
     }
 
     public void setBillingAddress(Address newAddress) {
-        this.billingAddress = newAddress;
->>>>>>> Stashed changes
+        this.billingAddress.setAddress(newAddress);
+
     }
 
-    public void setOrderStatus(String status) {
+    public void setOrderStatus(OrderStatus status) {
         this.orderStatus = status;
     }
 
-    public void setDateCreated(String date) {
+    public void setDateCreated(Date date) {
         this.dateCreated = date;
     }
 
-    public void setDateShipped(String date) {
+    public void setDateShipped(Date date) {
         this.dateShipped = date;
     }
 
@@ -74,26 +55,69 @@ public class Order {
         System.out.println("Date Shipped: " + dateShipped);
         System.out.println("User Name: " + userName);
         System.out.println("Order Status: " + orderStatus);
-        System.out.println("Shipping Address: " + shippingAddressLine1 + ", " + shippingAddressLine2 + ", " + shippingAddressCity + ", " + shippingAddressState + ", " + shippingAddressZip + ", " + shippingAddressCountry);
-        System.out.println("Billing Address: " + billingAddressLine1 + ", " + billingAddressLine2 + ", " + billingAddressCity + ", " + billingAddressState + ", " + billingAddressZip + ", " + billingAddressCountry);
-        System.out.println("Order Price: $" + orderPrice);
+        System.out.println("Shipping Address: " + shippingAddress.getAddressLine1() + ", " + shippingAddress.getAddressLine2() + ", " + shippingAddress.getAddressCity() + ", " + shippingAddress.getAddressState() + ", " + shippingAddress.getAddressZip() + ", " + shippingAddress.getAddressCountry());
+        System.out.println("Billing Address: " + billingAddress.getAddressLine1() + ", " + billingAddress.getAddressLine2() + ", " + billingAddress.getAddressCity() + ", " + billingAddress.getAddressState() + ", " + billingAddress.getAddressZip() + ", " + billingAddress.getAddressCountry());
+        System.out.println("Order Price Before Subscription Discount: $" + this.totalPrice);
+        System.out.println("Subscription status: " + this.subscription);
+        System.out.println("Discount Applied: $" +  Double.toString(this.totalPrice - this.orderPrice));
+        System.out.println("Order Price After Subscription Discount: $" + this.orderPrice);
     }
 
-    public double calculatePrice(String subscription) {
-        double totalPrice = 0.0;
-
+    
+    public double calculatePrice() {
+        this.totalPrice = 0.0;
         for (CartItem item : items) {
-            totalPrice += item.getTotalPrice();
+            this.totalPrice += item.getTotalPrice();
         }
+        return subscription.applyDiscount(this.totalPrice);
+    }
+   
+}
 
-        if (subscription == "gold") {
-            totalPrice *= 0.15; // 15% discount for prime members
-        } else if (subscription == "platinum") {
-            totalPrice *= 0.10; // 10% discount for platinum members
-        } else if (subscription == "silver") {
-            totalPrice *= 0.05; // 5% discount for silver members
-        } 
+interface Subscription {
+    double applyDiscount(double price);
+}
 
-        return totalPrice;
+class GoldSubscription implements Subscription {
+    public double applyDiscount(double price) {
+        return price * 0.85; // 15% discount
+    }
+    
+    @Override
+    public String toString(){
+        return "Gold";
+    }
+}
+
+class PlatinumSubscription implements Subscription {
+    public double applyDiscount(double price) {
+        return price * 0.90; // 10% discount
+    }
+
+    @Override
+    public String toString(){
+        return "Platinum";
+    }
+}
+
+class SilverSubscription implements Subscription {
+    public double applyDiscount(double price) {
+        return price * 0.95; // 5% discount
+    }
+
+    @Override
+    public String toString(){
+        return "Silver";
+    }
+}
+
+class NormalSubscription implements Subscription {
+    public double applyDiscount(double price) {
+        return price; // No discount
+    }
+
+    @Override
+    public String toString(){
+        return "Normal";
     }
 }

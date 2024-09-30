@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Bookazon {
 
-    private ArrayList<Book> books;
+    private ArrayList<Media> books;
     private ArrayList<User> users;
 
     public Bookazon() {
@@ -11,7 +11,7 @@ public class Bookazon {
         users = new ArrayList<>();
     }
 
-    public void addBook(Book book) {
+    public void addBook(Media book) {
         books.add(book);
     }
 
@@ -20,7 +20,7 @@ public class Bookazon {
     }
 
     public void viewBooks() {
-        for (Book book : books) {
+        for (Media book : books) {
             book.printBookDetails();
         }
     }
@@ -31,7 +31,7 @@ public class Bookazon {
         }
     }
 
-    public void removeBook(Book book) {
+    public void removeBook(Media book) {
         books.remove(book);
     }
 
@@ -39,15 +39,32 @@ public class Bookazon {
         users.remove(user);
     }
 
-    public void updateBookDetails(Book book, String newTitle, String newAuthor, int newYearPublished, double newPrice, boolean isPaperback) {
+    public void updateBookTitle(Media book, String newTitle){
         book.setTitle(newTitle);
-        book.setAuthor(newAuthor);
-        book.setYearPublished(newYearPublished);
-        book.setPrice(newPrice);
-        book.setPaperback(isPaperback);
     }
 
-    public void updateRole(User user, String role) {
+
+    public void updateBookPrice(Media book, double newPrice){
+        book.setPrice(newPrice);
+    }
+
+    public void updateBookAuthor(Media book, String newAuthor){
+        book.setAuthor(newAuthor);
+    }
+
+    public void updateBookYearPublished(Media book, int newYearPublished){
+        book.setYearPublished(newYearPublished);
+    }
+
+    // this only work for the Book class not other subclass of media class
+    // needs further changes
+    /* 
+    public void updateBookIsPaperback(Media book, boolean isPaperback){
+        book.setPaperback(isPaperback);
+    }
+    */
+
+    public void updateRole(User user, Subscription role) {
         user.setSubscription(role);
     }
 
@@ -68,16 +85,11 @@ public class Bookazon {
         bookazon.addBook(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99, true));
         bookazon.addBook(new Book("To Kill a Mockingbird", "Harper Lee", 1960, 7.99, false));
         bookazon.addBook(new Book("1984", "George Orwell", 1949, 8.99, true));
+        bookazon.addBook(new DVDs("Inception", "Christopher Nolan", 2010, 19.99, "Christopher Nolan", 148));
+        bookazon.addBook(new Ebook("1984", "George Orwell", 1949, 7.99, "EPUB", 2));
 
-        Cart Newcart = new Cart();
-        // create users
-<<<<<<< Updated upstream
-        bookazon.addUser(new User("Alice", "normal"));
-        bookazon.addUser(new User("Bob", "gold"));
-=======
-        bookazon.addUser(new User("Alice", new NormalSubscription(), Newcart));
-        bookazon.addUser(new User("Bob", new GoldSubscription(), Newcart));
->>>>>>> Stashed changes
+        bookazon.addUser(new User("Alice", new NormalSubscription(), new Cart()));
+        bookazon.addUser(new User("Bob", new GoldSubscription(), new Cart()));
 
         // add books to cart
         bookazon.users.get(0).addToCart(bookazon.books.get(0), 1);
@@ -87,8 +99,8 @@ public class Bookazon {
         bookazon.users.get(0).viewCart();
 
         // set shipping address and billing address
-        bookazon.users.get(0).setShippingAddress("123 Main St", "", "Springfield", "IL", "62701", "USA");
-        bookazon.users.get(0).setBillingAddress("456 Elm St", "", "Springfield", "IL", "62702", "USA");
+        bookazon.users.get(0).setShippingAddress(new Address("123 Main St", "", "Springfield", "IL", "62701", "USA"));
+        bookazon.users.get(0).setBillingAddress(new Address("456 Elm St", "", "Springfield", "IL", "62702", "USA"));
 
         // checkout
         bookazon.users.get(0).checkout();
