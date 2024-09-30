@@ -68,6 +68,17 @@ public class User {
         order.setUserName(this.name);
         orders.add(order);
     }
+
+    public void checkout(Address shippingAddress, Address billingAddress, String date) {
+        Order order = new Order(cart, this.subscription);
+        order.setShippingAddress(shippingAddress);
+        order.setBillingAddress(billingAddress);
+        order.setOrderStatus(OrderStatus.PLACED);
+        order.setDateCreated(date);
+        order.setUserName(this.name);
+        order.setDateShipped("TBD");
+        orders.add(order);
+    }
 }
 
 

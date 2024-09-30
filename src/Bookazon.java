@@ -68,6 +68,14 @@ public class Bookazon {
         user.setSubscription(role);
     }
 
+    public User getUser(int index){
+        return users.get(index);
+    }
+
+    public Media getBook(int index){
+        return books.get(index);
+    }
+
     
     public static void main(String[] args) {
         
@@ -80,10 +88,8 @@ public class Bookazon {
         bookazon.addProduct(new DVDs("Inception", "Christopher Nolan", 2010, 19.99, "Christopher Nolan", 148));
         bookazon.addProduct(new Ebook("1984", "George Orwell", 1949, 7.99, "EPUB", 2));
 
-        // create users
         bookazon.addUser(new User("Alice", new NormalSubscription(), new Cart()));
         bookazon.addUser(new User("Bob", new GoldSubscription(), new Cart()));
-
 
         // add books to cart
         bookazon.users.get(0).addToCart(bookazon.products.get(0), 1);
