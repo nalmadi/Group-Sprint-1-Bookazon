@@ -30,6 +30,7 @@ public class Order {
 
     public void setBillingAddress(Address newAddress) {
         this.billingAddress.setAddress(newAddress);
+
     }
 
     public void setOrderStatus(OrderStatus status) {

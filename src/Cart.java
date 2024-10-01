@@ -35,4 +35,17 @@ public class Cart {
     public ArrayList<CartItem> getItems() {
         return items;
     }
+
+    public void addProductToCart(Media product, int quantity) {
+        addItem(new CartItem(product.getTitle(), product.getPrice(), quantity));
+    }
+
+    public void removeProductFromCart(Media product) {
+        for (CartItem item : getItems()) {
+            if (item.getName().equals(product.getTitle())) {
+                getItems().remove(item);
+                break;
+            }
+        }
+    }
 }

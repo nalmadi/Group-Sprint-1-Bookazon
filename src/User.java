@@ -40,17 +40,12 @@ public class User {
         this.billingAddress.setAddress(newAddress);
     }
 
-    public void addToCart(Media book, int quantity) {
-        cart.addItem(new CartItem(book.getTitle(), book.getPrice(), quantity));
+    public void addToCart(Media product, int quantity) {
+        cart.addProductToCart(product, quantity);
     }
 
-    public void removeFromCart(Media book) {
-        for (CartItem item : cart.getItems()) {
-            if (item.getName().equals(book.getTitle())) {
-                cart.getItems().remove(item);
-                break;
-            }
-        }
+    public void removeFromCart(Media product) {
+        cart.removeProductFromCart(product);
     }
 
     public void viewOrders() {
@@ -66,8 +61,22 @@ public class User {
         order.setShippingAddress(shippingAddress);
         order.setBillingAddress(billingAddress);
         order.setOrderStatus(OrderStatus.PLACED);
+
+
         order.setDateCreated(new Date(2024, 1, 1));
+
         order.setUserName(this.name);
+        orders.add(order);
+    }
+
+    public void checkout(Address shippingAddress, Address billingAddress, String date) {
+        Order order = new Order(cart, this.subscription);
+        order.setShippingAddress(shippingAddress);
+        order.setBillingAddress(billingAddress);
+        order.setOrderStatus(OrderStatus.PLACED);
+        order.setDateCreated(date);
+        order.setUserName(this.name);
+        order.setDateShipped("TBD");
         orders.add(order);
     }
 }
