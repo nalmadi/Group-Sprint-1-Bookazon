@@ -62,7 +62,7 @@ public abstract class Media implements MediaValidation{
         this.price = price;
     }
 
-    public void printBookDetails() {
+    public void printProductDetails() {
         System.out.println("Title: " + title);
         System.out.println("Author: " + author);
         System.out.println("Year Published: " + yearPublished);

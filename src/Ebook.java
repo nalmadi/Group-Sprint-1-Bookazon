@@ -1,4 +1,4 @@
-public class Ebook extends Media {
+public class Ebook extends Media implements EbookValidation{
     private String format; // "PDF", "EPUB", "MOBI"
     private int fileSize; // in MB
 
@@ -24,8 +24,8 @@ public class Ebook extends Media {
         this.fileSize = fileSize;
     }
 
-    public void printBookDetails() {
-        super.printBookDetails();
+    public void printProductDetails() {
+        super.printProductDetails();
         System.out.println("Format: " + format);
         System.out.println("File Size: " + fileSize + " MB");
     }

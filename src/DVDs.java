@@ -1,4 +1,4 @@
-public class DVDs extends Media {
+public class DVDs extends Media implements DVDValidation {
     private String director;
     private int runtime; // in minutes
 
@@ -24,8 +24,8 @@ public class DVDs extends Media {
         this.runtime = runtime;
     }
 
-    public void printBookDetails() {
-        super.printBookDetails();
+    public void printProductDetails() {
+        super.printProductDetails();
         System.out.println("Director: " + director);
         System.out.println("Runtime: " + runtime + " minutes");
     }
