@@ -2,8 +2,8 @@ public class Ebook extends Media {
     private String format; // "PDF", "EPUB", "MOBI"
     private int fileSize; // in MB
 
-    public Ebook(String title, String author, int yearPublished, double price, String format, int fileSize) {
-        super(title, author, yearPublished, price);
+    public Ebook(String title, String author, int yearPublished, double price, int stockCount, String format, int fileSize) {
+        super(title, author, yearPublished, price, stockCount);
         this.format = format;
         this.fileSize = fileSize;
     }
