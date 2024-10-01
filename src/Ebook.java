@@ -1,4 +1,4 @@
-public class Ebook extends Media {
+public class Ebook extends Media implements EbookValidation{
     private String format; // "PDF", "EPUB", "MOBI"
     private int fileSize; // in MB
 

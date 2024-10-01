@@ -1,4 +1,4 @@
-public class AudioBooks extends Media {
+public class AudioBooks extends Media implements AudioBookValidation{
     private double duration; // in minutes
     private String narrator;
 

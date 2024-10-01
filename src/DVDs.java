@@ -1,4 +1,4 @@
-public class DVDs extends Media {
+public class DVDs extends Media implements DVDValidation {
     private String director;
     private int runtime; // in minutes
 
