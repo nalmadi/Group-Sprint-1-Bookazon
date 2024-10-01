@@ -44,8 +44,7 @@ We've applied SOLID principles to create a robust, extensible architecture:
 | Agnes | Cathy | James | Zaynab |
 
 ## 📊 Project Progress
-
-![Burndown Chart](https://via.placeholder.com/600x300?text=Burndown+Chart)
+<img src="https://github.com/AgLyx3/Group-Sprint-1-Bookazon/blob/16-create-an-elaborate-and-creative-readmemd-priority/images/burndown_chart.png" alt="Burndown Chart" width="800"/>
 
 ## 🚀 Getting Started
 
