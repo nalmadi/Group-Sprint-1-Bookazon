@@ -30,6 +30,13 @@ public class CartItem{
     }
 
     public double getTotalPrice() {
-        return item.getPrice() * quantity;
+        if (this.item.isInStock() && quantity < this.item.getStockCount()){
+            return item.getPrice() * quantity;
+        }
+    
+        else{
+            return item.getPrice() * this.item.getStockCount();
+        }
+    
     }
 }
