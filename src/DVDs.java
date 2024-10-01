@@ -2,8 +2,8 @@ public class DVDs extends Media {
     private String director;
     private int runtime; // in minutes
 
-    public DVDs(String title, String author, int yearPublished, double price, String director, int runtime) {
-        super(title, author, yearPublished, price);
+    public DVDs(String title, String author, int yearPublished, double price, int stockCount, String director, int runtime) {
+        super(title, author, yearPublished, price, stockCount);
         this.director = director;
         this.runtime = runtime;
     }
