@@ -1,20 +1,18 @@
-public class CartItem {
-    private String itemName;
-    private double price;
+public class CartItem{
+    private Media item;
     private int quantity;
 
-    public CartItem(String itemName, double price, int quantity) {
-        this.itemName = itemName;
-        this.price = price;
+    public CartItem(Media item, int quantity) {
+        this.item = item ;
         this.quantity = quantity;
     }
 
     public String getName() {
-        return itemName;
+        return item.getTitle();
     }
 
     public double getPrice() {
-        return price;
+        return item.getPrice();
     }
 
     public int getQuantity() {
@@ -23,13 +21,22 @@ public class CartItem {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+        this.item.setStockCount(this.item.getStockCount() - quantity);
     }
 
+
     public boolean equals(CartItem item) {
-        return this.itemName.equals(item.getName());
+        return this.item.getTitle().equals(item.getName());
     }
 
     public double getTotalPrice() {
-        return price * quantity;
+        if (this.item.isInStock() && quantity < this.item.getStockCount()){
+            return item.getPrice() * quantity;
+        }
+    
+        else{
+            return item.getPrice() * this.item.getStockCount();
+        }
+    
     }
 }

@@ -37,7 +37,8 @@ public class Cart {
     }
 
     public void addProductToCart(Media product, int quantity) {
-        addItem(new CartItem(product.getTitle(), product.getPrice(), quantity));
+        addItem(new CartItem(product, quantity));
+
     }
 
     public void removeProductFromCart(Media product) {

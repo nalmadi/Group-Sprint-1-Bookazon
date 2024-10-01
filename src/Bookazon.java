@@ -82,11 +82,11 @@ public class Bookazon {
         Bookazon bookazon = new Bookazon();
         
         // create books
-        bookazon.addProduct(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99, true));
-        bookazon.addProduct(new Book("To Kill a Mockingbird", "Harper Lee", 1960, 7.99, false));
-        bookazon.addProduct(new Book("1984", "George Orwell", 1949, 8.99, true));
-        bookazon.addProduct(new DVDs("Inception", "Christopher Nolan", 2010, 19.99, "Christopher Nolan", 148));
-        bookazon.addProduct(new Ebook("1984", "George Orwell", 1949, 7.99, "EPUB", 2));
+        bookazon.addProduct(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, 9.99, 5, true));
+        bookazon.addProduct(new Book("To Kill a Mockingbird", "Harper Lee", 1960, 7.99, 2, false));
+        bookazon.addProduct(new Book("1984", "George Orwell", 1949, 8.99, 10, true));
+        bookazon.addProduct(new DVDs("Inception", "Christopher Nolan", 2010, 19.99, 20, "Christopher Nolan", 148));
+        bookazon.addProduct(new Ebook("1984", "George Orwell", 1949, 7.99, 100, "EPUB", 2));
 
         bookazon.addUser(new User("Alice", new NormalSubscription(), new Cart()));
         bookazon.addUser(new User("Bob", new GoldSubscription(), new Cart()));
