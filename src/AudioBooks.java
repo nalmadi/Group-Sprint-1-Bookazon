@@ -2,8 +2,8 @@ public class AudioBooks extends Media {
     private double duration; // in minutes
     private String narrator;
 
-    public AudioBooks(String title, String author, int yearPublished, double price, double duration, String narrator) {
-        super(title, author, yearPublished, price);
+    public AudioBooks(String title, String author, int yearPublished, double price, int stockCount, double duration, String narrator) {
+        super(title, author, yearPublished, price, stockCount);
         this.duration = duration;
         this.narrator = narrator;
     }
