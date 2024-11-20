@@ -32,4 +32,18 @@ public class CartItem {
     public double getTotalPrice() {
         return price * quantity;
     }
+
+    public String printCartItemDetails(CartItem item){
+        if (item instanceof DVD){
+            return item.printBookDetails
+        }
+
+        if (item instanceof Book){
+            return item.printDVDDetails
+        }
+
+        if (item instanceof AudioBook){
+            return item.printAudioBookDetails
+        }
+    }
 }
